@@ -151,6 +151,46 @@ main {
   opacity: 0.9;
 }
 
+.recent-transaction-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 24px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card title */
+.recent-transaction-card h3 {
+  font-size: 18px;
+}
+
+/* Transaction row */
+.transaction-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #f4f4f4;
+}
+
+/* Left side text */
+.info {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Amount */
+.balance-status {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
 
 
 
