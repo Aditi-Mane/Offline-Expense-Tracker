@@ -32,44 +32,83 @@
     <!-- Income & Expenses Section -->
     <section id="expenses-section">
 
-          <!-- Card Header -->
-      <div class="balance-header">
-        <img src="assets/wallet.png" alt="wallet icon" height="25px">
-        <span class="balance-title">Total Balance</span>
-      </div>
+      <!-- Total balance card -->
+      <div class="balance-card">
 
-      <!-- Main Balance Amount -->
-      <div class="balance-amount">
-        <span class="currency">&#8377;</span>
-        <span class="value">45,300</span>
-      </div>
-
-      <!-- Income & Expense Records -->
-      <div class="balance-records">
-
-        <!-- Income -->
-        <div class="record income">
-          <div class="record-label">
-            <img src="assets/increase.png" alt="income icon" height="25px">
-            <span>Income</span>
-          </div>
-          <div class="record-amount">
-            <span class="currency">&#8377;</span>
-            <span class="value">50,000</span>
-          </div>
+        <!-- Card Header -->
+        <div class="balance-header">
+          <img src="assets/wallet.png" alt="wallet icon" height="25px">
+          <span class="balance-title">Total Balance</span>
         </div>
 
-        <!-- Expense -->
-        <div class="record expense">
-          <div class="record-label">
-            <img src="assets/decrease.png" alt="expense icon" height="25px">
-            <span>Expenses</span>
-          </div>
-          <div class="record-amount">
-            <span class="currency">&#8377;</span>
-            <span class="value">4,700</span>
-          </div>
+        <!-- Main Balance Amount -->
+        <div class="balance-amount">
+          <span class="currency">&#8377;</span>
+          <span class="value">45,300</span>
         </div>
+
+        <!-- Income & Expense Records -->
+        <div class="balance-records">
+
+          <!-- Income -->
+          <div class="record income">
+            <div class="record-label">
+              <img src="assets/increase.png" alt="income icon" height="25px">
+              <span>Income</span>
+            </div>
+            <div class="record-amount">
+              <span class="currency">&#8377;</span>
+              <span class="value">50,000</span>
+            </div>
+          </div>
+
+          <!-- Expense -->
+          <div class="record expense">
+            <div class="record-label">
+              <img src="assets/decrease.png" alt="expense icon" height="25px">
+              <span>Expenses</span>
+            </div>
+            <div class="record-amount">
+              <span class="currency">&#8377;</span>
+              <span class="value">4,700</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Transaction Card -->
+      <div class="transaction-card">
+        <h3>Add Transaction</h3>
+
+        <!-- title input -->
+        <label for="title">Title</label>
+        <input type="text" id="title" placeholder="Enter title">
+
+        <!-- amount input -->
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" placeholder="0.00">  
+
+        <!-- Dropdown income/expense choice -->
+        <label for="type">Type</label>
+        <select name = "type" id="type">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+
+        <!-- Dropdown Optional choice -->
+        <label for="category">Category (Optional)</label>
+        <select name = "category" id="category">
+          <option value="income">Other</option>
+          <option value="expense">Food</option>
+        </select>
+
+        <!-- Add Transaction button -->
+        <button>Add Transaction</button>
+      </div>
+
+      <!-- Recent Transaction Card -->
+      <div class="recent-transaction-card">
 
       </div>
     </section>
