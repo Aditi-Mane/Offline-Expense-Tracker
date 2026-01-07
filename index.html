@@ -127,7 +127,109 @@
 
     <!-- Friends Ledger Section -->
     <section id="ledger-section">
+      <!-- Total balance card -->
+      <div class="balance-card">
 
+        <!-- Card Header -->
+        <div class="balance-header">
+          <img src="assets/friends.png" alt="friends icon" height="25px">
+          <span class="balance-title">Friends Ledger Summary</span>
+        </div>
+
+        <!-- Main Balance Amount -->
+        <div class="balance-amount">
+          <span class="currency">&#8377;</span>
+          <span class="value">45,300</span>
+        </div>
+
+        <!-- Friend given Expenses Records -->
+        <div class="balance-records">
+
+          <!-- You owe friends -->
+          <div class="record income">
+            <div class="record-label">
+              <img src="assets/increase.png" alt="income icon" height="25px">
+              <span>You owe</span>
+            </div>
+            <div class="record-amount">
+              <span class="currency">&#8377;</span>
+              <span class="value">50,000</span>
+            </div>
+          </div>
+
+          <!-- Friends owe you -->
+          <div class="record expense">
+            <div class="record-label">
+              <img src="assets/decrease.png" alt="expense icon" height="25px">
+              <span>Friends owe you</span>
+            </div>
+            <div class="record-amount">
+              <span class="currency">&#8377;</span>
+              <span class="value">4,700</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transaction Card Friends -->
+      <div class="transaction-card">
+        <h3>Add Friend Transaction</h3>
+
+        <!-- Friend name input -->
+        <label for="name">Friend Name</label>
+        <input type="text" id="name" placeholder="Enter friends's name">
+
+        <!-- amount input -->
+        <label for="friend-amount">Amount</label>
+        <input type="number" id="friend-amount" placeholder="0.00">  
+
+        <!-- Dropdown "owes you/you owe" choice -->
+        <label for="type-owing">Type</label>
+        <select name = "type" id="type-owing">
+          <option value="income">Friend owes you</option>
+          <option value="expense">You owe friend</option>
+        </select>
+
+        <!-- Textarea Optional choice -->
+        <label for="note">Note (Optional)</label>
+        <textarea rows="2" cols="2" id = "note" placeholder="Add a note..."></textarea>
+
+        <!-- Add Transaction button -->
+        <button>Add Transaction</button>
+      </div>
+
+      <!-- Friends Transactions -->
+      <div class="friends-transactions">
+
+        <h2>Friend Transactions</h2>
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab active">All</button>
+          <button class="tab">Unpaid</button>
+          <button class="tab">Paid</button>
+        </div>
+
+        <!-- Transaction Card -->
+        <div class="transaction-card">
+          <div class="card-left">
+            <div class="name-row">
+              <span class="name">Rahul</span>
+              <span class="badge owe">You Owe</span>
+              <span class="badge status">Unpaid</span>
+            </div>
+
+            <div class="amount owe-amount">₹500</div>
+            <div class="desc">Dinner at restaurant</div>
+            <div class="date">2 Jan 2026</div>
+          </div>
+
+          <div class="card-right">
+            <span class="icon">✔</span>
+            <span class="icon">🗑</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Stats Section -->
