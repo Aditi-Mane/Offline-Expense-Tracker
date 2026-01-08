@@ -98,11 +98,27 @@
 
         <!-- Dropdown Optional choice -->
         <label for="category">Category (Optional)</label>
-        <select name = "category" id="category">
-          <option value="income">Other</option>
-          <option value="expense">Food</option>
-        </select>
+        <div class="income-options">
+          <select name = "category" id="income-category">
+            <option value="income">Other</option>
+            <option value="expense">Freelance</option>
+            <option value="expense">Investment</option>
+            <option value="expense">Gift</option>
+          </select>
+        </div>
 
+        <div class="expense-options">
+          <select name = "category" id="expense-category">
+            <option value="income">Other</option>
+            <option value="expense">Food</option>
+            <option value="expense">Transport</option>
+            <option value="expense">Bills</option>
+            <option value="expense">Shopping</option>
+            <option value="expense">Entertainment</option>
+            <option value="expense">Health</option>
+          </select>
+        </div>
+      
         <!-- Add Transaction button -->
         <button>Add Transaction</button>
       </div>
@@ -110,18 +126,27 @@
       <!-- Recent Transaction Card -->
       <div class="recent-transaction-card">
         <h3>Recent Transactions</h3>
-        <div class="transaction-info">
+        <div class="transaction-item income">
+          <div class="left">
+            <div class="icon">
+              ↑
+            </div>
 
-          <!-- Info of transaction added -->
-          <div class="info">
-            Title - Category
+            <div class="details">
+              <div class="title-row">
+                <span class="title">Salary</span>
+                <span class="tag">Salary</span>
+              </div>
+              <div class="date">1 Jan 2026</div>
+            </div>
           </div>
 
-          <!-- Add in increase/decrease in amount -->
-          <div class="balance-status">
-            + 20,000
+          <div class="right">
+            <span class="amount">+₹50,000</span>
+            <span class="delete">🗑️</span>
           </div>
         </div>
+
       </div>
     </section>
 
