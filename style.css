@@ -505,9 +505,6 @@ textarea::placeholder {
     padding: 10px;
   }
 }
-.expense-options{
-  display: none;
-}
 
 .transaction-item {
   display: flex;
