@@ -49,3 +49,8 @@ function createTransactionCard({title, amount, type, category, date}){
 
   return transactionItem;
 }
+
+//function to add new transaction card to friends transactions
+function createFriendTransactionCard({name, amount, type, noteTyped, date}){
+  
+}

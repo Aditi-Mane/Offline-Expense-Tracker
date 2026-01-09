@@ -64,5 +64,48 @@ addBtn.addEventListener("click", ()=>{
   amountInput.value ="";
 })
 
+//add in friend transaction logic
+const friendName = document.getElementById("name");
+const friendAmount = document.getElementById("friend-amount");
+const typeOwing = document.getElementById("type-owing");
+const note = document.getElementById("note");
+const friendBtn = document.getElementById("addFriendBtn");
+
+const friendTransactionContainer = document.querySelector(".friends-transactions")
+const tabs = document.querySelector(".tabs");
+
+friendBtn.addEventListener("click", ()=>{
+  const name = friendName.value.trim();
+  const amount = Number(friendAmount.value);
+  const type = typeOwing.value;
+  const noteTyped = note.value.trim();
+
+  if(!name || !amount){
+    alert("Enter valid name and amount!");
+    return;
+  }
+
+  const friendTransaction = {
+    name,
+    amount,
+    type,
+    noteTyped,
+    date: new Date().toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    })
+  }
+
+  //const friendTransactionCard = createFriendTransactionCard(friendTransaction);
+  //tabs.insertAdjacentElement("afterend", friendTransactionCard);
+
+  console.log(friendTransaction);
+
+  friendName.value = "";
+  friendAmount.value = "";
+  note.value = "";
+})
+
 
 
