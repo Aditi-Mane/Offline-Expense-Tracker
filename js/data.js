@@ -1,1 +1,3 @@
 let transactions = [];
+
+let friendTransactions = [];
