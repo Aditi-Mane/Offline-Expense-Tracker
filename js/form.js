@@ -63,6 +63,7 @@ addBtn.addEventListener("click", ()=>{
   recentTransactionsContainer.append(transactionCard); // newest on top
 
   updateSummary(transactions);
+  saveTransactions();
 
   titleInput.value="";
   amountInput.value ="";
@@ -107,6 +108,7 @@ friendBtn.addEventListener("click", ()=>{
   tabs.insertAdjacentElement("afterend", friendTransactionCard);
 
   updateFriendSummary(friendTransactions);
+  saveFriendTransactions();
 
   friendName.value = "";
   friendAmount.value = "";
