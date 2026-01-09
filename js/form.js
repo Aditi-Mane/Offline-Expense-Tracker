@@ -56,9 +56,13 @@ addBtn.addEventListener("click", ()=>{
     })
   }
 
+  transactions.push(transaction);
+
    //create and append
   const transactionCard = createTransactionCard(transaction);
   recentTransactionsContainer.append(transactionCard); // newest on top
+
+  updateSummary(transactions);
 
   titleInput.value="";
   amountInput.value ="";
