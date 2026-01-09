@@ -97,10 +97,8 @@ friendBtn.addEventListener("click", ()=>{
     })
   }
 
-  //const friendTransactionCard = createFriendTransactionCard(friendTransaction);
-  //tabs.insertAdjacentElement("afterend", friendTransactionCard);
-
-  console.log(friendTransaction);
+  const friendTransactionCard = createFriendTransactionCard(friendTransaction);
+  tabs.insertAdjacentElement("afterend", friendTransactionCard);
 
   friendName.value = "";
   friendAmount.value = "";
