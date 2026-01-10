@@ -105,3 +105,31 @@ function createFriendTransactionCard({name, amount, type, noteTyped, date}){
 
   return transactionCard;
 }
+
+//function to render transactions
+function renderTransactions() {
+  const container = document.querySelector(".recent-transaction-card");
+
+  //clear old UI (VERY IMPORTANT)
+  container.innerHTML = "<h3>Recent Transactions</h3>";
+
+  //render each transaction
+  transactions.forEach(transaction => {
+    const card = createTransactionCard(transaction);
+    container.append(card);
+  });
+}
+
+//function to render friend transactions
+function renderFriendTransactions(){
+  const container = document.querySelector(".friends-transactions")
+  const tabs = document.querySelector(".tabs");
+
+  const oldCards = container.querySelectorAll(".transaction-card");
+  oldCards.forEach(oldCard => oldCard.remove());
+
+  friendTransactions.forEach(friendTransaction =>{
+    const card = createFriendTransactionCard(friendTransaction);
+    tabs.insertAdjacentElement("afterend", card);
+  })  
+}
