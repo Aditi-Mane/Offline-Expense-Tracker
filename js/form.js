@@ -124,23 +124,34 @@ const incomeExpenseSection = document.getElementById("expenses-section");
 const friendsLedgerSection = document.getElementById("ledger-section");
 const statSection = document.getElementById("stats-section");
 
+const navButtons = document.querySelectorAll("nav .buttons button");
+
 //initially only one section visible
 friendsLedgerSection.style.display = "none";
 statSection.style.display = "none";
 
 incomeExpensesBtn.addEventListener("click",()=>{
+  navButtons.forEach(btn => btn.classList.remove("active"));
+  incomeExpensesBtn.classList.add("active");
+
   incomeExpenseSection.style.display = "block";
   friendsLedgerSection.style.display = "none";
   statSection.style.display = "none";
 })
 
 friendsLedgerBtn.addEventListener("click",()=>{
+  navButtons.forEach(btn => btn.classList.remove("active"));
+  friendsLedgerBtn.classList.add("active");
+
   incomeExpenseSection.style.display = "none";
   friendsLedgerSection.style.display = "block";
   statSection.style.display = "none";
 })
 
 statsBtn.addEventListener("click",()=>{
+  navButtons.forEach(btn => btn.classList.remove("active"));
+  statsBtn.classList.add("active");
+  
   incomeExpenseSection.style.display = "none";
   friendsLedgerSection.style.display = "none";
   statSection.style.display = "block";
