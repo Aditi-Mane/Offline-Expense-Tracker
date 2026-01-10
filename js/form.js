@@ -115,5 +115,39 @@ friendBtn.addEventListener("click", ()=>{
   note.value = "";
 })
 
+//add nav bar buttons toggle visibility
+const incomeExpensesBtn = document.getElementById("income-expenses");
+const friendsLedgerBtn = document.getElementById("friends-ledger");
+const statsBtn = document.getElementById("stats");
+
+const incomeExpenseSection = document.getElementById("expenses-section");
+const friendsLedgerSection = document.getElementById("ledger-section");
+const statSection = document.getElementById("stats-section");
+
+//initially only one section visible
+friendsLedgerSection.style.display = "none";
+statSection.style.display = "none";
+
+incomeExpensesBtn.addEventListener("click",()=>{
+  incomeExpenseSection.style.display = "block";
+  friendsLedgerSection.style.display = "none";
+  statSection.style.display = "none";
+})
+
+friendsLedgerBtn.addEventListener("click",()=>{
+  incomeExpenseSection.style.display = "none";
+  friendsLedgerSection.style.display = "block";
+  statSection.style.display = "none";
+})
+
+statsBtn.addEventListener("click",()=>{
+  incomeExpenseSection.style.display = "none";
+  friendsLedgerSection.style.display = "none";
+  statSection.style.display = "block";
+})
+
+
+
+
 
 
