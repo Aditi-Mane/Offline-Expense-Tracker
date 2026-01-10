@@ -7,7 +7,7 @@ const incomeStat = document.querySelector(".stat-card .income");
 const expenseStat = document.querySelector(".stat-card .expense");
 
 //updating balance, income & expense summary
-function updateSummary(transactions){
+function updateSummary(){
   let income = 0;
   let expense = 0;
 
@@ -32,7 +32,7 @@ const youOweAmountDOM = document.querySelector("#ledger-section .you-owe .value"
 const friendOwesAmountDOM = document.querySelector("#ledger-section .friend-owe .value")
 
 //function to update friend summary
-function updateFriendSummary(friendTransactions){
+function updateFriendSummary(){
   let friendOweAmount = 0;
   let youOweAmount = 0;
 

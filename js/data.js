@@ -1,4 +1,4 @@
-let transactions = [];
+let transactions = []; //transactions globally available
 
 let friendTransactions = [];
 
