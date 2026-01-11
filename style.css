@@ -85,6 +85,7 @@ main {
   align-items: center;
   gap: 8px;
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 /* Big balance amount */
@@ -124,7 +125,7 @@ main {
   font-weight: 600;
 }
 
-.record.expense {
+.record.expense, .record.friend-owe {
   margin: 0 auto;
 }
 
@@ -140,7 +141,7 @@ main {
 }
 
 /* Title */
-.transaction-card h3 {
+.transaction-card h3, .friends-transactions h3{
   margin-bottom: 8px;
   font-size: 20px;
 }
@@ -273,16 +274,18 @@ textarea::placeholder {
 
 .friends-transactions {
   max-width: 600px;
-  padding: 24px;
+  padding: 16px;
   background: #fff;
   border-radius: 16px;
   border: 1px solid #e6e6e6;
-  font-family: system-ui, sans-serif;
+  width: 50%;
+  margin-top: 20px;
 }
-
-.friends-transactions h2 {
-  margin-bottom: 16px;
-  font-size: 20px;
+@media (max-width: 768px){
+  .friends-transactions{
+    width: 100%;
+    margin-top: 5px;
+  }
 }
 
 /* Tabs */
@@ -292,6 +295,7 @@ textarea::placeholder {
   padding: 6px;
   border-radius: 20px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .tab {
