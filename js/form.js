@@ -189,7 +189,8 @@ document.getElementById("saveEdit").addEventListener("click",()=>{
     type: editType.value,
     category:  editType.value === "income" ? editIncomeCategory.value : editExpenseCategory.value
   }
-
+  
+  saveTransactions()
   renderTransactions();
   closeEditModal();
 })
