@@ -192,9 +192,25 @@ document.getElementById("saveEdit").addEventListener("click",()=>{
   
   saveTransactions()
   renderTransactions();
+  updateSummary();
   closeEditModal();
 })
 
+//deletion operation of a transaction
+recentTransactionsContainer.addEventListener("click",(e)=>{
+  const deleteBtn = e.target.closest(".delete");
+  if(!deleteBtn) return;
+
+  const id = Number(deleteBtn.dataset.id);
+  const confirmed = confirm("Delete this transaction?");
+  if (!confirmed) return;
+
+  transactions = transactions.filter(t => t.id !== id);
+
+  saveTransactions();
+  renderTransactions();
+  updateSummary();
+})
 
 
 
