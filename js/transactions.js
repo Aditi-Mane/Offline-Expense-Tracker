@@ -1,5 +1,5 @@
 //function to add new transaction card to recent transactions
-function createTransactionCard({title, amount, type, category, date}){
+function createTransactionCard({id, title, amount, type, category, date}){
   const transactionItem = document.createElement("div");
   transactionItem.classList.add("transaction-item", type);
 
@@ -39,6 +39,7 @@ function createTransactionCard({title, amount, type, category, date}){
 
   const editEl = document.createElement("span");
   editEl.classList.add("edit");
+  editEl.dataset.id = id;
 
   const imgEdit = document.createElement("img");
   imgEdit.src = "./assets/pen.png";   // path to your image
@@ -49,6 +50,7 @@ function createTransactionCard({title, amount, type, category, date}){
 
   const deleteEl = document.createElement("span");
   deleteEl.classList.add("delete");
+  deleteEl.dataset.id = id;
 
   const img = document.createElement("img");
   img.src = "./assets/bin.png";   // path to your image
@@ -67,7 +69,7 @@ function createTransactionCard({title, amount, type, category, date}){
 }
 
 //function to add new transaction card to friends transactions
-function createFriendTransactionCard({name, amount, type, noteTyped, date}){
+function createFriendTransactionCard({id, name, amount, type, noteTyped, date}){
   const transactionCard = document.createElement("div");
   transactionCard.classList.add("transaction-card");
 
@@ -149,3 +151,48 @@ function renderFriendTransactions(){
     tabs.insertAdjacentElement("afterend", card);
   })  
 }
+
+//function to open edit modal
+const editModal = document.getElementById("editModal");
+const editTitle = document.getElementById("edit-title");
+const editAmount = document.getElementById("edit-amount");
+const editType = document.getElementById("edit-type");
+
+const incomeOptions = editModal.querySelector(".income-options");
+const expenseOptions = editModal.querySelector(".expense-options");
+
+const editIncomeCategory = document.getElementById("edit-income-category");
+const editExpenseCategory = document.getElementById("edit-expense-category");
+
+//to open modal
+function openEditModal(txn){
+  editModal.classList.remove("hidden");
+
+  editTitle.value = txn.title;
+  editAmount.value = txn.amount;
+  
+  if (type === "income") {
+    incomeOptions.style.display = "block";
+    expenseOptions.style.display = "none";
+  } else {
+    incomeOptions.style.display = "none";
+    expenseOptions.style.display = "block";
+  }
+
+  if (txn.type === "income") {
+    editIncomeCategory.value = txn.category;
+  } else {
+    editExpenseCategory.value = txn.category;
+  }
+
+  // store id on modal
+  editModal.dataset.id = txn.id;
+}
+
+//to close modal
+function closeEditModal() {
+  editModal.classList.add("hidden");
+  document.body.style.overflow = "auto";
+}
+
+

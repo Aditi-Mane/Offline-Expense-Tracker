@@ -45,6 +45,7 @@ addBtn.addEventListener("click", ()=>{
 
   //create single object for values entered
   const transaction = {
+    id: Date.now(),
     title,
     amount,
     type,
@@ -62,7 +63,7 @@ addBtn.addEventListener("click", ()=>{
   const transactionCard = createTransactionCard(transaction);
   recentTransactionsContainer.append(transactionCard); // newest on top
 
-  updateSummary(transactions);
+  updateSummary();
   saveTransactions();
 
   titleInput.value="";
@@ -91,6 +92,7 @@ friendBtn.addEventListener("click", ()=>{
   }
 
   const friendTransaction = {
+    id: Date.now(),
     name,
     amount,
     type,
@@ -107,7 +109,7 @@ friendBtn.addEventListener("click", ()=>{
   const friendTransactionCard = createFriendTransactionCard(friendTransaction);
   tabs.insertAdjacentElement("afterend", friendTransactionCard);
 
-  updateFriendSummary(friendTransactions);
+  updateFriendSummary();
   saveFriendTransactions();
 
   friendName.value = "";
@@ -155,6 +157,41 @@ statsBtn.addEventListener("click",()=>{
   incomeExpenseSection.style.display = "none";
   friendsLedgerSection.style.display = "none";
   statSection.style.display = "block";
+})
+
+//to open the edit modal for certain transaction id
+recentTransactionsContainer.addEventListener("click", (e) => {
+  const editBtn = e.target.closest(".edit");
+  if (!editBtn) return;
+
+  const id = Number(editBtn.dataset.id);
+  const txn = transactions.find(t => t.id === id);
+
+  openEditModal(txn);
+});
+
+//to close the edit modal
+editModal.querySelector(".close").addEventListener("click", () => {
+  editModal.classList.add("hidden");
+});
+
+//modal save
+document.getElementById("saveEdit").addEventListener("click",()=>{
+  const id = Number(editModal.dataset.id);
+
+  const index = transactions.findIndex(t => t.id === id);
+  if(index == -1) return;
+
+  transactions[index] = {
+    ...transactions[index],
+    title: editTitle.value.trim(),
+    amount: Number(editAmount.value),
+    type: editType.value,
+    category:  editType.value === "income" ? editIncomeCategory.value : editExpenseCategory.value
+  }
+
+  renderTransactions();
+  closeEditModal();
 })
 
 
