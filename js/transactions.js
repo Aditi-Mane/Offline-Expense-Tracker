@@ -69,7 +69,7 @@ function createTransactionCard({id, title, amount, type, category, date}){
 }
 
 //function to add new transaction card to friends transactions
-function createFriendTransactionCard({id, name, amount, type, noteTyped, date}){
+function createFriendTransactionCard({id, name, amount, type, noteTyped, date, paid}){
   const transactionCard = document.createElement("div");
   transactionCard.classList.add("transaction-card");
 
@@ -90,7 +90,7 @@ function createFriendTransactionCard({id, name, amount, type, noteTyped, date}){
 
   const payStatus = document.createElement("span");
   payStatus.classList.add("badge", "status");
-  payStatus.textContent = "Unpaid"; //modify this later on
+  payStatus.textContent = paid ? "Paid" : "Unpaid";
 
   const amountEl = document.createElement("div");
   amountEl.classList.add("amount", "owe-amount");
@@ -108,17 +108,31 @@ function createFriendTransactionCard({id, name, amount, type, noteTyped, date}){
   const rightCard = document.createElement("div");
   rightCard.classList.add("card-right");
 
-  const tick = document.createElement("span");
-  tick.classList.add("icon");
-  tick.textContent = "✔";
+  const editEl = document.createElement("span");
+  editEl.classList.add("edit");
+  editEl.dataset.id = id;
+
+  const imgEdit = document.createElement("img");
+  imgEdit.src = "./assets/pen.png";   // path to your image
+  imgEdit.alt = "Edit";
+  imgEdit.classList.add("edit-icon");
+
+  editEl.appendChild(imgEdit);
 
   const deleteEl = document.createElement("span");
-  deleteEl.classList.add("icon");
-  deleteEl.textContent = "🗑";
+  deleteEl.classList.add("delete");
+  deleteEl.dataset.id = id;
+
+  const img = document.createElement("img");
+  img.src = "./assets/bin.png";   // path to your image
+  img.alt = "Delete";
+  img.classList.add("delete-icon");
+
+  deleteEl.appendChild(img);
 
   nameRow.append(friendName, oweStatus, payStatus);
   cardLeft.append(nameRow, amountEl, descEl, dateEl);
-  rightCard.append(tick, deleteEl);
+  rightCard.append(editEl, deleteEl);
   transactionCard.append(cardLeft, rightCard);
 
   return transactionCard;

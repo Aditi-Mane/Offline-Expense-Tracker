@@ -198,6 +198,10 @@ main {
   gap: 1px;
 }
 
+.friends-transactions .transaction-card {
+  width: 100%;
+}
+
 /* Card title */
 .recent-transaction-card h3 {
   font-size: 20px;
