@@ -665,6 +665,19 @@ textarea::placeholder {
   color: #dc2626;
 }
 
+.delete, .edit {
+  cursor: pointer;
+}
+
+.delete-icon, .edit-icon {
+  width: 25px;
+  height: 25px;
+}
+.delete:hover, .edit:hover {
+  transform: scale(1.1);
+}
+
+
 
 
 

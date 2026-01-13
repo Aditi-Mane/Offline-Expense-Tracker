@@ -37,14 +37,30 @@ function createTransactionCard({title, amount, type, category, date}){
   amountEl.classList.add("amount");
   amountEl.textContent = (type === "income" ? "+₹" : "-₹") + amount.toLocaleString();
 
+  const editEl = document.createElement("span");
+  editEl.classList.add("edit");
+
+  const imgEdit = document.createElement("img");
+  imgEdit.src = "./assets/pen.png";   // path to your image
+  imgEdit.alt = "Edit";
+  imgEdit.classList.add("edit-icon");
+
+  editEl.appendChild(imgEdit);
+
   const deleteEl = document.createElement("span");
   deleteEl.classList.add("delete");
-  deleteEl.textContent = "🗑️";
+
+  const img = document.createElement("img");
+  img.src = "./assets/bin.png";   // path to your image
+  img.alt = "Delete";
+  img.classList.add("delete-icon");
+
+  deleteEl.appendChild(img);
 
   titleRow.append(titleEl, categoryEl);
   details.append(titleRow, dateEl);
   left.append(icon, details);
-  right.append(amountEl, deleteEl);
+  right.append(amountEl, editEl, deleteEl);
   transactionItem.append(left, right);
 
   return transactionItem;
