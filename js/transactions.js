@@ -62,7 +62,13 @@ function createTransactionCard({id, title, amount, type, category, date}){
   titleRow.append(titleEl, categoryEl);
   details.append(titleRow, dateEl);
   left.append(icon, details);
-  right.append(amountEl, editEl, deleteEl);
+
+  const actions = document.createElement("div");
+  actions.classList.add("actions");
+
+  actions.append(editEl, deleteEl);
+  right.append(amountEl, actions);
+
   transactionItem.append(left, right);
 
   return transactionItem;
@@ -143,7 +149,13 @@ function createFriendTransactionCard({id, name, amount, type, noteTyped, date, p
 
   nameRow.append(friendName, oweStatus, payStatus);
   cardLeft.append(nameRow, amountEl, descEl, dateEl);
-  rightCard.append(checkEl, editEl, deleteEl);
+
+  const actions = document.createElement("div");
+  actions.classList.add("actions");
+
+  actions.append(editEl, deleteEl);
+  rightCard.append(checkEl, actions);
+
   transactionCard.append(cardLeft, rightCard);
 
   return transactionCard;
@@ -155,6 +167,15 @@ function renderTransactions() {
 
   //clear old UI (VERY IMPORTANT)
   container.innerHTML = "";
+
+  if(transactions.length === 0){
+    const empty = document.createElement("div");
+    empty.classList.add("empty-state");
+    empty.textContent = "No transactions yet. Add one to get started!";
+
+    container.appendChild(empty);
+    return;
+  }
 
   //render each transaction
   transactions.forEach(transaction => {
@@ -176,6 +197,24 @@ function renderFriendTransactions(){
    } else if(currentTab === "unpaid"){
     filtered = friendTransactions.filter(t => t.paid === false);
    }
+
+   if (filtered.length === 0) {
+    const empty = document.createElement("div");
+    empty.classList.add("empty-state");
+
+    if (currentTab === "paid") {
+      empty.textContent = "No paid transactions yet";
+    } 
+    else if (currentTab === "unpaid") {
+      empty.textContent = "No unpaid transactions yet";
+    } 
+    else {
+      empty.textContent = "No transactions yet. Add one to get started!";
+    }
+
+    list.appendChild(empty);
+    return;
+  }
 
    filtered.forEach(t => {
     const card = createFriendTransactionCard(t);

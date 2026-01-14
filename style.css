@@ -19,48 +19,59 @@ nav {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 12px 0 24px;
+  margin: 16px 0;
 }
 
-/* Segmented control container */
-nav .buttons {
+.buttons {
   display: flex;
-  background: #f2f2f4;
-  border-radius: 999px;
+  background: #f2f2f2;
   padding: 6px;
-  gap: 6px;
-  width: 100%;
-  max-width: 520px;   /* keeps it compact & centered */
-}
-@media (max-width: 768px){
-  nav .buttons{
-    border-radius: 0px;
-  }
+  border-radius: 30px;
+  width: 95%;
+  max-width: 420px;
 }
 
-/* Buttons */
-nav .buttons button {
+.buttons button {
   flex: 1;
   border: none;
   background: transparent;
   padding: 10px 0;
-  border-radius: 999px;
   font-size: 14px;
   font-weight: 500;
+  color: #444;
+  border-radius: 24px;
   cursor: pointer;
-  color: #111;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
+  
 }
+/* Desktop spacing */
+.buttons {
+  max-width: 600px;          /* wider pill */
+}
+
+.buttons button {
+  padding: 12px 28px;        /* more space left & right */
+  font-size: 15px;
+}
+
 
 /* Active tab */
-nav .buttons button.active {
-  background: #ffffff;
-  font-weight: 300;
+.buttons button.active {
+  background: white;
+  color: #000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-.buttons{
-  background-color: #B0C4DE;
-  padding: 5px;
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .buttons {
+    padding: 4px;
+  }
+
+  .buttons button {
+    font-size: 12px;
+    padding: 8px 0;
+  }
 }
 
 main {
@@ -832,10 +843,10 @@ footer {
   width: 100%;
   padding: 16px 0;
   margin-top: 30px;
-  background: #4242ed;
-  color: #bdbdbd;
+  background:  #2563eb;
+  color: #ffffff;
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.3px;
 }
 
@@ -852,18 +863,107 @@ footer span {
   margin-top: 0;
 }
 
-.transaction-area .transaction-card{
+.form-card{
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+.transaction-item .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.transaction-item .actions {
+  display: flex;
+  gap: 8px;
+}
 
+/* Mobile */
+@media (max-width: 768px) {
+  .transaction-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
+  .transaction-item .right {
+    width: 100%;
+    justify-content: space-between;
+  }
 
+  .transaction-item .actions {
+    justify-content: flex-end;
+  }
+}
 
+/* Left side */
+.transactions-list .card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
+/* Name row (name + badges + paid) */
+.transactions-list .name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Right side (checkbox + actions) */
+.transactions-list .card-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;   /* pushes icons to the right */
+}
+
+/* Group edit + delete */
+.transactions-list .actions {
+  display: flex;
+  gap: 8px;
+}
+.transactions-list .check-box {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  flex-shrink: 0;       /* prevents stretching */
+  align-self: center;  /* keeps it centered vertically */
+}
+
+/* Mobile behavior */
+@media (max-width: 768px) {
+  
+  .transactions-list .transaction-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .transactions-list .card-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .transactions-list .actions {
+    justify-content: flex-end;
+  }
+
+  #expenses-section, #ledger-section, #stats-section{
+    margin: -33px;
+    margin-top: 5px;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  color: #292626;
+  font-size: 20px;
+  padding: 30px 10px;
+  opacity: 0.8;
+}
 
 
 
