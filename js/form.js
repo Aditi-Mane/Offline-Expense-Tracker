@@ -264,6 +264,22 @@ friendTransactionContainer.addEventListener("click",(e)=>{
   updateFriendSummary();
 })
 
+//unpaid/paid toggling via. event delegation
+friendTransactionContainer.addEventListener("change",(e)=>{
+  const checkBox = e.target;
+  if(checkBox.classList.contains("check-box")){
+    const id = Number(checkBox.dataset.id);
+
+    const txn = friendTransactions.find(t => t.id === id);
+    txn.paid = checkBox.checked;
+
+    saveFriendTransactions();
+    renderFriendTransactions();
+    updateFriendSummary();
+  }
+})
+
+
 
 
 

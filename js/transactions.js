@@ -92,6 +92,11 @@ function createFriendTransactionCard({id, name, amount, type, noteTyped, date, p
   payStatus.classList.add("badge", "status");
   payStatus.textContent = paid ? "Paid" : "Unpaid";
 
+  if (paid) {
+    payStatus.classList.add("paid");
+    transactionCard.classList.add("paid-card");
+  }
+
   const amountEl = document.createElement("div");
   amountEl.classList.add("amount", "owe-amount");
   amountEl.textContent = "₹" + amount.toLocaleString();
@@ -107,6 +112,12 @@ function createFriendTransactionCard({id, name, amount, type, noteTyped, date, p
   //right card
   const rightCard = document.createElement("div");
   rightCard.classList.add("card-right");
+
+  const checkEl = document.createElement("input");
+  checkEl.type = "checkbox"
+  checkEl.classList.add("check-box");
+  checkEl.dataset.id = id;
+  checkEl.checked = paid;
 
   const editEl = document.createElement("span");
   editEl.classList.add("edit");
@@ -132,7 +143,7 @@ function createFriendTransactionCard({id, name, amount, type, noteTyped, date, p
 
   nameRow.append(friendName, oweStatus, payStatus);
   cardLeft.append(nameRow, amountEl, descEl, dateEl);
-  rightCard.append(editEl, deleteEl);
+  rightCard.append(checkEl, editEl, deleteEl);
   transactionCard.append(cardLeft, rightCard);
 
   return transactionCard;

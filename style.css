@@ -361,9 +361,69 @@ textarea::placeholder {
   color: #2563eb;
 }
 
+/* -------- STATUS BADGE -------- */
 .badge.status {
-  background: #f4f4f5;
-  color: #555;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 6px;
+  background-color: #ffe5e5;
+  color: #d32f2f;
+}
+
+/* Paid badge */
+.badge.status.paid {
+  background-color: #e6f7ee;
+  color: #1b8f5a;
+}
+
+/* -------- TRANSACTION CARD WHEN PAID -------- */
+.transaction-card.paid-card {
+  background: #f6fff9;
+  border: 1px solid #c7ecd9;
+  opacity: 0.9;
+}
+
+/* -------- CHECKBOX -------- */
+.check-box {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #555;
+  background-color: transparent; 
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Checked = Paid */
+.check-box:checked {
+  background-color: #1b8f5a;
+  border-color: #1b8f5a;
+}
+
+/* Tick mark */
+.check-box:checked::after {
+  content: "✔";
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  left: 4px;
+  bottom: -1px;
+}
+
+/* Hover feel */
+.check-box:hover {
+  transform: scale(1.05);
+}
+
+/* Align right side nicely */
+.card-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 /* Amounts */
@@ -673,10 +733,16 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-.delete-icon, .edit-icon {
+.delete-icon, .edit-icon, .check-box {
   width: 25px;
   height: 25px;
 }
+
+.check-box {
+  width: 25px;
+  height: 25px;
+}
+
 .delete:hover, .edit:hover {
   transform: scale(1.1);
 }

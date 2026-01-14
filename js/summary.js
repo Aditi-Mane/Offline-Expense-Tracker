@@ -37,12 +37,14 @@ function updateFriendSummary(){
   let youOweAmount = 0;
 
   friendTransactions.forEach(transaction=>{
-    if(transaction.type === "friend-owes"){
-      friendOweAmount = friendOweAmount + transaction.amount;
-    } else {
-      youOweAmount = youOweAmount + transaction.amount;
+    if (!transaction.paid) {   
+      if (transaction.type === "friend-owes") {
+        friendOweAmount += transaction.amount;
+      } else {
+        youOweAmount += transaction.amount;
+      }
     }
-  })
+  });
 
   youOweAmountDOM.textContent = `${youOweAmount.toLocaleString()}`;
   friendOwesAmountDOM.textContent = `${friendOweAmount.toLocaleString()}`;
