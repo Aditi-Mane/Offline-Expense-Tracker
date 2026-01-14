@@ -30,14 +30,22 @@ function updateSummary(){
 
 const youOweAmountDOM = document.querySelector("#ledger-section .you-owe .value")
 const friendOwesAmountDOM = document.querySelector("#ledger-section .friend-owe .value")
+const statTotalOwed = document.querySelector(".total-owed strong");
+const statTotalBorrowed = document.querySelector(".total-borrowed strong");
+const statTransactions = document.getElementById("total-transactions");
+const statUnpaidTransactions = document.getElementById("unpaid-transactions");
 
 //function to update friend summary
 function updateFriendSummary(){
   let friendOweAmount = 0;
   let youOweAmount = 0;
+  let totalTransactions = friendTransactions.length;
+  let unpaidTransactions = 0;
 
   friendTransactions.forEach(transaction=>{
-    if (!transaction.paid) {   
+    if (!transaction.paid) { 
+      unpaidTransactions++;
+      
       if (transaction.type === "friend-owes") {
         friendOweAmount += transaction.amount;
       } else {
@@ -48,4 +56,8 @@ function updateFriendSummary(){
 
   youOweAmountDOM.textContent = `${youOweAmount.toLocaleString()}`;
   friendOwesAmountDOM.textContent = `${friendOweAmount.toLocaleString()}`;
+  statTotalOwed.textContent = `₹${youOweAmount.toLocaleString()}`;
+  statTotalBorrowed.textContent = `₹${friendOweAmount.toLocaleString()}`;
+  statTransactions.textContent = `${totalTransactions.toLocaleString()}`;
+  statUnpaidTransactions.textContent = `${unpaidTransactions.toLocaleString()}`;
 }
