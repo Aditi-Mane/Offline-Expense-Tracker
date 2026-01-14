@@ -279,6 +279,18 @@ friendTransactionContainer.addEventListener("change",(e)=>{
   }
 })
 
+//filtering all/paid/unpaid tabs in filter transactions
+document.querySelectorAll(".tab").forEach((tab)=>{
+  tab.addEventListener("click",()=>{
+    currentTab = tab.dataset.filter;
+
+    document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+    tab.classList.add("active");
+
+    renderFriendTransactions();
+  })
+})
+
 
 
 

@@ -164,17 +164,23 @@ function renderTransactions() {
 }
 
 //function to render friend transactions
+let currentTab = "all";
 function renderFriendTransactions(){
-  const container = document.querySelector(".friends-transactions")
-  const tabs = document.querySelector(".tabs");
+   const list = document.querySelector(".transactions-list");
+   list.innerHTML = "";
 
-  const oldCards = container.querySelectorAll(".transaction-card");
-  oldCards.forEach(oldCard => oldCard.remove());
+   let filtered = friendTransactions;
 
-  friendTransactions.forEach(friendTransaction =>{
-    const card = createFriendTransactionCard(friendTransaction);
-    tabs.insertAdjacentElement("afterend", card);
-  })  
+   if(currentTab === "paid"){
+    filtered = friendTransactions.filter(t => t.paid === true);
+   } else if(currentTab === "unpaid"){
+    filtered = friendTransactions.filter(t => t.paid === false);
+   }
+
+   filtered.forEach(t => {
+    const card = createFriendTransactionCard(t);
+    list.appendChild(card);
+   })
 }
 
 //function to open edit modal
