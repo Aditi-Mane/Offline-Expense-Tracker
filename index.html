@@ -127,27 +127,8 @@
       <!-- Recent Transaction Card -->
       <div class="recent-transaction-card">
         <h3>Recent Transactions</h3>
-        <div class="transaction-item income">
-          <div class="left">
-            <div class="icon">
-              ↑
-            </div>
 
-            <div class="details">
-              <div class="title-row">
-                <span class="title">Salary</span>
-                <span class="category">Salary</span>
-              </div>
-              <div class="date">1 Jan 2026</div>
-            </div>
-          </div>
-
-          <div class="right">
-            <span class="amount">+₹50,000</span>
-            <span class="edit"><img src = "assets/pen.png" alt="edit_icon" height="25px"></span>
-            <span class="delete"><img src = "assets/bin.png" alt="del_icon" height="25px"></span>
-          </div>
-        </div>
+        <!-- All the transaction cards -->
 
       </div>
     </div>
@@ -176,7 +157,7 @@
 
           <!-- income category -->
           <div class="income-options">
-            <label>Category</label>
+            <label for="edit-income-category">Category</label>
             <select id="edit-income-category">
               <option value="other">Other</option>
               <option value="freelance">Freelance</option>
@@ -187,7 +168,7 @@
 
           <!-- expense category -->
           <div class="expense-options">
-            <label>Category</label>
+            <label for="edit-expense-category">Category</label>
             <select id="edit-expense-category">
               <option value="other">Other</option>
               <option value="food">Food</option>
@@ -308,6 +289,41 @@
         </div>
       </div>
       </div>
+
+      <!-- Edit Friend Transaction Modal -->
+      <div id="editFriendModal" class="modal hidden">
+        <div class="transaction-card modal-card">
+
+          <!-- Close -->
+          <span class="close" id="closeEditFriendModal">&times;</span>
+
+          <h3>Edit Friend Transaction</h3>
+
+          <!-- Friend name -->
+          <label for="edit-name">Friend Name</label>
+          <input type="text" id="edit-name">
+
+          <!-- Amount -->
+          <label for="edit-friend-amount">Amount</label>
+          <input type="number" id="edit-friend-amount">
+
+          <!-- Type -->
+          <label for="edit-type-owing">Type</label>
+          <select id="edit-type-owing">
+            <option value="friend-owes">Friend owes you</option>
+            <option value="you-owe-friend">You owe friend</option>
+          </select>
+
+          <!-- Note -->
+          <label for="edit-note">Note (Optional)</label>
+          <textarea rows="2" id="edit-note" placeholder="Add a note..."></textarea>
+
+          <!-- Save -->
+          <button id="saveEditFriendBtn">Save</button>
+
+        </div>
+      </div>
+
     </section>
 
     <!-- Stats Section -->

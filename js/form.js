@@ -212,6 +212,59 @@ recentTransactionsContainer.addEventListener("click",(e)=>{
   updateSummary();
 })
 
+//edit operation for friend transactions
+friendTransactionContainer.addEventListener("click",(e)=>{
+  const editBtn = e.target.closest(".edit");
+  if(!editBtn) return;
+
+  const id = Number(editBtn.dataset.id);
+  const txn = friendTransactions.find(t => t.id === id);
+
+  openFriendEditModal(txn);
+})
+
+closeEditFriendModalBtn.addEventListener("click", () => {
+  editFriendModal.classList.add("hidden");
+});
+
+//modal save
+document.getElementById("saveEditFriendBtn").addEventListener("click",()=>{
+  const id = Number(editFriendModal.dataset.id);
+
+  const index = friendTransactions.findIndex(t => t.id === id);
+  if(index == -1) return;
+
+  friendTransactions[index] = {
+    ...friendTransactions[index],
+    name: editFriendName.value.trim(),
+    amount: Number(editFriendAmount.value),
+    type: editFriendType.value,
+    noteTyped: editFriendNote.value
+  }
+  
+  saveFriendTransactions()
+  renderFriendTransactions();
+  updateFriendSummary();
+  closeEditFriendModal();
+})
+
+//deletion operation of a transaction
+friendTransactionContainer.addEventListener("click",(e)=>{
+  const deleteBtn = e.target.closest(".delete");
+  if(!deleteBtn) return;
+
+  const id = Number(deleteBtn.dataset.id);
+  const confirmed = confirm("Delete this transaction?");
+  if (!confirmed) return;
+
+  friendTransactions = friendTransactions.filter(t => t.id !== id);
+
+  saveFriendTransactions();
+  renderFriendTransactions();
+  updateFriendSummary();
+})
+
+
 
 
 

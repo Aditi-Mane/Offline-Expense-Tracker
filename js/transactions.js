@@ -184,8 +184,9 @@ function openEditModal(txn){
 
   editTitle.value = txn.title;
   editAmount.value = txn.amount;
+  editType.value = txn.type;
   
-  if (type === "income") {
+  if (txn.type === "income") {
     incomeOptions.style.display = "block";
     expenseOptions.style.display = "none";
   } else {
@@ -209,4 +210,32 @@ function closeEditModal() {
   document.body.style.overflow = "auto";
 }
 
+//function to edit friend transactions using modal
+const editFriendModal = document.getElementById("editFriendModal");
+
+const editFriendName = document.getElementById("edit-name");
+const editFriendAmount = document.getElementById("edit-friend-amount");
+const editFriendType = document.getElementById("edit-type-owing");
+const editFriendNote = document.getElementById("edit-note");
+
+const saveEditFriendBtn = document.getElementById("saveEditFriendBtn");
+const closeEditFriendModalBtn = document.getElementById("closeEditFriendModal");
+
+function openFriendEditModal(txn){
+  console.log("EDIT TXN RECEIVED:", txn);
+  editFriendModal.classList.remove("hidden");
+
+  editFriendName.value = txn.name;
+  editFriendAmount.value = txn.amount;
+  editFriendType.value = txn.type;
+  editFriendNote.value = txn.noteTyped;
+
+  editFriendModal.dataset.id = txn.id;
+}
+
+//to close modal
+function closeEditFriendModal() {
+  editFriendModal.classList.add("hidden");
+  document.body.style.overflow = "auto";
+}
 
