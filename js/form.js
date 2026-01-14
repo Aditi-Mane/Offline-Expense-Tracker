@@ -6,7 +6,7 @@ const incomeCategory = document.getElementById("income-category");
 const expenseCategory = document.getElementById("expense-category");
 
 const addBtn = document.querySelector(".transaction-card button");
-const recentTransactionsContainer = document.querySelector(".recent-transaction-card");
+const recentTransactionsContainer = document.querySelector(".expenses-transactions-list");
 
 //initial display of only income options
 expenseCategory.style.display = "none";
@@ -60,9 +60,7 @@ addBtn.addEventListener("click", ()=>{
   transactions.push(transaction);
 
    //create and append
-  const transactionCard = createTransactionCard(transaction);
-  recentTransactionsContainer.append(transactionCard); // newest on top
-
+  renderTransactions();
   updateSummary();
   saveTransactions();
 
@@ -106,9 +104,7 @@ friendBtn.addEventListener("click", ()=>{
 
   friendTransactions.push(friendTransaction);
 
-  const friendTransactionCard = createFriendTransactionCard(friendTransaction);
-  tabs.insertAdjacentElement("afterend", friendTransactionCard);
-
+  renderFriendTransactions();
   updateFriendSummary();
   saveFriendTransactions();
 

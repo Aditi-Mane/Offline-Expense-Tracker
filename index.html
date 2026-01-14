@@ -87,7 +87,7 @@
         <input type="text" id="title" placeholder="Enter title">
 
         <!-- amount input -->
-        <label for="amount">Amount</label>
+        <label for="amount">Amount (in ₹)</label>
         <input type="number" id="amount" placeholder="0.00">  
 
         <!-- Dropdown income/expense choice -->
@@ -99,9 +99,11 @@
 
         <!-- Dropdown Optional choice -->
         <label for="category">Category (Optional)</label>
+        <div class="category-wrapper">
         <div class="income-options">
           <select name = "category" id="income-category">
             <option value="other">Other</option>
+            <option value="salary">Salary</option>
             <option value="freelance">Freelance</option>
             <option value="investment">Investment</option>
             <option value="gift">Gift</option>
@@ -119,6 +121,7 @@
             <option value="health">Health</option>
           </select>
         </div>
+        </div>
       
         <!-- Add Transaction button -->
         <button>Add Transaction</button>
@@ -128,7 +131,9 @@
       <div class="recent-transaction-card">
         <h3>Recent Transactions</h3>
 
-        <!-- All the transaction cards -->
+        <div class="expenses-transactions-list">
+          <!-- All the transaction cards -->
+        </div>
 
       </div>
     </div>
@@ -236,7 +241,7 @@
         <input type="text" id="name" placeholder="Enter friends's name">
 
         <!-- amount input -->
-        <label for="friend-amount">Amount</label>
+        <label for="friend-amount">Amount (in ₹)</label>
         <input type="number" id="friend-amount" placeholder="0.00">  
 
         <!-- Dropdown "owes you/you owe" choice -->
@@ -332,11 +337,6 @@
             <span>All time spending</span>
           </div>
 
-          <div class="stat-card">
-            <p class="stat-title">Friend Balance</p>
-            <h3 class="orange">₹500</h3>
-            <span>To pay</span>
-          </div>
         </div>
 
         <!-- Middle Section -->
@@ -388,6 +388,8 @@
 
     </section>
   </main>
+
+  <footer>Track your expenses and given udhar to get your money back</footer>
 
   <script src="js/data.js"></script>
   <script src="js/summary.js"></script>

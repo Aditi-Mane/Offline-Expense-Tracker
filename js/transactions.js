@@ -151,15 +151,15 @@ function createFriendTransactionCard({id, name, amount, type, noteTyped, date, p
 
 //function to render transactions
 function renderTransactions() {
-  const container = document.querySelector(".recent-transaction-card");
+  const container = document.querySelector(".expenses-transactions-list");
 
   //clear old UI (VERY IMPORTANT)
-  container.innerHTML = "<h3>Recent Transactions</h3>";
+  container.innerHTML = "";
 
   //render each transaction
   transactions.forEach(transaction => {
     const card = createTransactionCard(transaction);
-    container.append(card);
+    container.prepend(card);
   });
 }
 

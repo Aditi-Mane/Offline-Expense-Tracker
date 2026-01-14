@@ -137,7 +137,7 @@ main {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1px;
 }
 
 /* Title */
@@ -155,12 +155,24 @@ main {
 /* Inputs & selects */
 .transaction-card input,
 .transaction-card select {
+  width: 100%;
   padding: 14px;
   border-radius: 10px;
   border: none;
   background-color: #f4f4f4;
   font-size: 14px;
   outline: none;
+  box-sizing: border-box;
+}
+.transaction-card select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23333' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center; /* padding from right */
+  background-size: 18px;
 }
 
 /* Placeholder text */
@@ -186,6 +198,18 @@ main {
   opacity: 0.9;
 }
 
+.expenses-transactions-list, .transactions-list{
+  max-height: 400px;        /* area allocated for scrolling */
+  overflow-y: auto;         /* enable vertical scroll */
+  padding-right: 6px; 
+}
+
+.category-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;   /* no extra spacing inside */
+}
+
 .recent-transaction-card {
   width: 50%;
   background-color: #ffffff;
@@ -196,6 +220,12 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1px;
+  margin-bottom: 11px;
+}
+
+#note{
+  width: 100%;
+  height: 100px;
 }
 
 .friends-transactions .transaction-card {
@@ -206,6 +236,7 @@ main {
 .recent-transaction-card h3 {
   font-size: 20px;
   margin-bottom: 20px;
+  margin-top: -5.5px;
 }
 
 /* Transaction row */
@@ -284,6 +315,7 @@ textarea::placeholder {
   border: 1px solid #e6e6e6;
   width: 50%;
   margin-top: 20px;
+  margin-bottom: 11px;
 }
 @media (max-width: 768px){
   .friends-transactions{
@@ -298,7 +330,7 @@ textarea::placeholder {
   background: #efeff2;
   padding: 6px;
   border-radius: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   margin-top: 20px;
 }
 
@@ -472,7 +504,7 @@ textarea::placeholder {
 /* Top Stats */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -795,6 +827,37 @@ textarea::placeholder {
     opacity: 1;
   }
 }
+
+footer {
+  width: 100%;
+  padding: 16px 0;
+  margin-top: 30px;
+  background: #4242ed;
+  color: #bdbdbd;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+footer span {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.transactions-list .transaction-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 0;
+}
+
+.transaction-area .transaction-card{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 
 
 
