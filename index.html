@@ -343,12 +343,13 @@
         <div class="grid-2">
           <div class="card">
             <h4>Monthly Trends</h4>
-            <div class="chart-placeholder">Line Chart</div>
+            <!-- <div class="chart-placeholder">Line Chart</div> -->
+            <canvas id="monthlyTrendChart"></canvas>
           </div>
 
           <div class="card">
             <h4>Expenses by Category</h4>
-            <div class="chart-placeholder">Pie Chart</div>
+            <canvas id="topSpendingChart"></canvas>
           </div>
         </div>
 
@@ -356,7 +357,7 @@
         <div class="grid-2">
           <div class="card">
             <h4>Top Spending Categories</h4>
-            <div class="chart-placeholder">Bar Chart</div>
+            <canvas id="expenseCategoryChart"></canvas>
           </div>
 
           <div class="card">
@@ -392,5 +393,6 @@
   <script src="js/form.js"></script>
   <script src="js/main.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

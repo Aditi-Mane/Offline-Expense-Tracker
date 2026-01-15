@@ -965,6 +965,12 @@ footer span {
   opacity: 0.8;
 }
 
+.card canvas {
+  width: 100%;
+  height: 250px;
+}
+
+
 
 
 

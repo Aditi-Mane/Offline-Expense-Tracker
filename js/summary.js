@@ -61,3 +61,77 @@ function updateFriendSummary(){
   statTransactions.textContent = `${totalTransactions.toLocaleString()}`;
   statUnpaidTransactions.textContent = `${unpaidTransactions.toLocaleString()}`;
 }
+
+//for charts setup
+let monthlyTrendChart; //object to easily destroy and update to new chart
+
+//function to render monthly income and expenses line graph
+function renderMonthlyTrendChart(){
+  const monthMap = {}; //object that will store monthwise transaction details
+
+  //month wise income and expenses grouping
+  transactions.forEach(t => {
+    const date = new Date(t.date);
+    const key = `${date.getMonth()}-${date.getFullYear()}`;
+
+    if(!monthMap[key]){
+      monthMap[key] = {
+        income: 0,
+        expense: 0,
+        label: date.toLocaleString("default", {
+          month: "short",
+          year: "numeric"
+        })
+      }
+    }
+
+    if (t.type === "income") {
+      monthMap[key].income += t.amount;
+    } else {
+      monthMap[key].expense += t.amount;
+    }
+  })
+
+  //convert object into arrays for Chart.js
+  const labels = Object.values(monthMap).map(m => m.label);
+  const incomeData = Object.values(monthMap).map(m => m.income);
+  const expenseData = Object.values(monthMap).map(m => m.expense);
+
+  //chart creation
+  const ctx = document.getElementById("monthlyTrendChart").getContext("2d");
+
+  if (monthlyTrendChart) {
+    monthlyTrendChart.destroy();
+  }
+
+  monthlyTrendChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Income",
+          data: incomeData,
+          borderColor: "#1b8f5a",
+          tension: 0.4,
+          fill: false
+        },
+        {
+          label: "Expense",
+          data: expenseData,
+          borderColor: "#d32f2f",
+          tension: 0.4,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "bottom"
+        }
+      }
+    }
+  });
+}
