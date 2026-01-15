@@ -135,3 +135,37 @@ function renderMonthlyTrendChart(){
     }
   });
 }
+
+//function to render top spending chart
+function renderTopSpendingChart() {
+  const categoryMap = {};
+
+  transactions.forEach(t => {
+    if (t.type === "expense") {
+      categoryMap[t.category] = (categoryMap[t.category] || 0) + t.amount;
+    }
+  });
+
+  const labels = Object.keys(categoryMap);
+  const data = Object.values(categoryMap);
+
+  const ctx = document.getElementById("topSpendingChart").getContext("2d");
+  if (topSpendingChart) topSpendingChart.destroy();
+
+  topSpendingChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels,
+      datasets: [{
+        label: "Amount Spent",
+        data,
+        backgroundColor: "#1b8f5a"
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { display: false }
+      }
+    }
+  });
+}
