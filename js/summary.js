@@ -64,6 +64,8 @@ function updateFriendSummary(){
 
 //for charts setup
 let monthlyTrendChart; //object to easily destroy and update to new chart
+let topSpendingChart;
+let expenseCategoryChart;
 
 //function to render monthly income and expenses line graph
 function renderMonthlyTrendChart(){
@@ -200,3 +202,11 @@ function renderExpenseCategoryChart() {
     }
   });
 }
+
+//function to update all charts
+function updateAllCharts() {  
+  renderMonthlyTrendChart();
+  renderTopSpendingChart();
+  renderExpenseCategoryChart();
+}
+

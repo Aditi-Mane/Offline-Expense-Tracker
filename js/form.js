@@ -153,6 +153,8 @@ statsBtn.addEventListener("click",()=>{
   incomeExpenseSection.style.display = "none";
   friendsLedgerSection.style.display = "none";
   statSection.style.display = "block";
+
+  updateAllCharts();
 })
 
 //to open the edit modal for certain transaction id
