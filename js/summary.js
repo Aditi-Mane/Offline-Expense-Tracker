@@ -169,3 +169,34 @@ function renderTopSpendingChart() {
     }
   });
 }
+
+//function to render expense category chart
+function renderExpenseCategoryChart() {
+  const categoryMap = {};
+
+  transactions.forEach(t => {
+    if (t.type === "expense") {
+      categoryMap[t.category] = (categoryMap[t.category] || 0) + t.amount;
+    }
+  });
+
+  const labels = Object.keys(categoryMap);
+  const data = Object.values(categoryMap);
+
+  const ctx = document.getElementById("expenseCategoryChart").getContext("2d");
+  if (expenseCategoryChart) expenseCategoryChart.destroy();
+
+  expenseCategoryChart = new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels,
+      datasets: [{
+        data,
+        backgroundColor: [
+          "#1b8f5a", "#42a5f5", "#ff7043",
+          "#ab47bc", "#ffa726", "#26c6da"
+        ]
+      }]
+    }
+  });
+}
