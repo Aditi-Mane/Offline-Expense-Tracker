@@ -1030,6 +1030,259 @@ footer span {
   flex-direction: column;
 }
 
+/* Dark mode UI */
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+body.dark .buttons{
+  background: #2b2b2b;
+}
+/* All nav buttons in dark mode */
+body.dark .buttons button{
+  background: #2b2b2b;   /* dark grey */
+  color: #bdbdbd;        /* light grey text */
+}
+
+/* Active nav button in dark mode */
+body.dark .buttons button.active{
+  background: #3a3a3a;   /* slightly lighter grey */
+  color: #ffffff;        /* white text */
+}
+body.dark .card,
+body.dark .transaction-card,
+body.dark .modal-card {
+  background: #1e1e1e;
+  color: #f5f5f5;
+  border: 1px solid #444;
+}
+body.dark input,
+body.dark select {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+body.dark .transaction-card select {
+  background: #2a2a2a 
+    url("data:image/svg+xml;utf8,<svg fill='%23e5e5e5' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")
+    no-repeat right 14px center;
+  background-size: 18px;
+  color: #fff;
+  border: 1px solid #444;
+}
+/* Dark mode number input */
+body.dark input[type="number"] {
+  background: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+/* Spinner buttons */
+body.dark input[type="number"]::-webkit-inner-spin-button,
+body.dark input[type="number"]::-webkit-outer-spin-button {
+  filter: invert(1) brightness(0.8); 
+}
+body.dark .transaction-card textarea,
+body.dark .transaction-card input {
+  background: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+/* Dark mode for cards inside expenses-transactions-list */
+body.dark .expenses-transactions-list .transaction-item {
+  background: #1e1e1e;
+  color: #e5e5e5;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+body.dark .recent-transaction-card{
+  background: #1e1e1e;
+  color: #e5e5e5;
+  border: 1px solid #444;;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+body.dark .expenses-transactions-list {
+  scrollbar-color: #2b2b2b #151515; /* Firefox */
+}
+
+/* ================= FRIENDS TRANSACTIONS – DARK MODE ================= */
+
+body.dark .friends-transactions{
+  background: #1e1e1e;
+  color: #e5e5e5;
+  border: 1px solid #444;;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Heading */
+body.dark .friends-transactions h3{
+  color: #ffffff;
+}
+
+/* ---------------- TABS ---------------- */
+body.dark .friends-transactions .tab{
+  background: #2b2b2b;
+  color: #bdbdbd;
+  border: none;
+}
+
+body.dark .friends-transactions .tabs{
+  background: #2b2b2b;
+  color: #bdbdbd;
+  border: none;
+}
+
+body.dark .friends-transactions .tab.active{
+  background: #3a3a3a;
+  color: #ffffff;
+}
+
+/* ---------------- TRANSACTION CARD ---------------- */
+body.dark .friends-transactions .transaction-card{
+  background: #1e1e1e;
+  color: #e5e5e5;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Paid card */
+body.dark .friends-transactions .transaction-card.paid-card{
+  background: #182018;
+  border-color: #2f5f2f;
+}
+
+/* ---------------- LEFT SIDE ---------------- */
+body.dark .friends-transactions .transaction-card .name{
+  color: #ffffff;
+}
+
+body.dark .friends-transactions .transaction-card .desc,
+body.dark .friends-transactions .transaction-card .date{
+  color: #bdbdbd;
+}
+
+/* Amount */
+body.dark .friends-transactions .transaction-card .amount{
+  color: #facc15;
+}
+
+/* ---------------- BADGES ---------------- */
+body.dark .friends-transactions .badge{
+  background: #2b2b2b;
+  color: #e5e5e5;
+  border: 1px solid #444;
+}
+
+body.dark .friends-transactions .badge.paid{
+  background: #14532d;
+  color: #4ade80;
+}
+
+body.dark .friends-transactions .badge.status:not(.paid){
+  background: rgb(204, 17, 33)
+}
+
+body.dark .friends-transactions {
+  scrollbar-color: #2b2b2b #151515; /* Firefox */
+}
+
+body.dark .empty-state{
+  color: #e5e5e5;
+}
+/* ================= STATS SECTION – DARK MODE ================= */
+
+body.dark #stats-section{
+  background: #121212;
+  color: #e5e5e5;
+}
+
+/* Dashboard wrapper */
+body.dark #stats-section .dashboard{
+  background: #121212;
+}
+
+/* ---------------- TOP STATS ---------------- */
+body.dark #stats-section .stat-card{
+  background: #1e1e1e;
+  color: #e5e5e5;
+  border: 1px solid #333;
+}
+
+body.dark #stats-section .stat-title{
+  color: #bdbdbd;
+}
+
+body.dark #stats-section .stat-card span{
+  color: #9ca3af;
+}
+
+/* Keep your amount colors */
+body.dark #stats-section .green{
+  color: #4ade80;
+}
+
+body.dark #stats-section .red{
+  color: #f87171;
+}
+
+/* ---------------- ALL CHART CARDS ---------------- */
+body.dark #stats-section .card{
+  background: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #333;
+}
+
+body.dark #stats-section .card h4{
+  color: #ffffff;
+}
+
+/* ---------------- CANVAS AREA ---------------- */
+body.dark #stats-section canvas{
+  background: #181818;
+  border-radius: 6px;
+}
+
+/* ---------------- SUMMARY ITEMS ---------------- */
+body.dark #stats-section .summary-item{
+  background: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+/* Individual summary color accents */
+body.dark #stats-section .summary-item.blue{
+  background: #1e3a8a;
+  color: #bfdbfe;
+}
+
+body.dark #stats-section .summary-item.orange{
+  background: #7c2d12;
+  color: #fed7aa;
+}
+
+/* ---------------- SUMMARY FOOTER ---------------- */
+body.dark #stats-section .summary-footer{
+  color: #e5e5e5;
+}
+
+body.dark #stats-section .summary-footer span{
+  color: #e5e5e5;
+}
+
+body.dark #stats-section .summary-footer b{
+  color: #ffffff;
+}
+
+/* ---------------- GRID CONTAINERS (OPTIONAL SOFT BG) ---------------- */
+body.dark #stats-section .stats-grid,
+body.dark #stats-section .grid-2{
+  background: transparent;
+}
+body.dark footer{
+  background-color: #444;
+}
+
 
 
 
