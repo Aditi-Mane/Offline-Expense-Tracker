@@ -1283,6 +1283,66 @@ body.dark footer{
   background-color: #444;
 }
 
+/* Toggle button */
+.theme-toggle{
+  display: flex;
+  gap: 10px;
+}
+
+.theme-toggle button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle button:hover{
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.theme-toggle img{
+  width: 22px;
+  height: 22px;
+}
+body.dark{
+  background-color: #121212;
+  color: #eaeaea;
+}
+/* Same color for both sun & moon in dark mode */
+body.dark .theme-toggle img {
+  filter: brightness(0) saturate(100%) invert(1);
+}
+/* Dark icon in light mode */
+body:not(.dark) .theme-toggle img {
+  filter: brightness(0) saturate(100%);
+}
+/* Mobile */
+@media (max-width: 600px){
+  header{
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 40px;
+  }
+
+  /* Keep icons side by side but center them */
+  .theme-toggle{
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .theme-toggle img{
+    width: 22px;
+    height: 22px;
+  }
+  
+}
+
 
 
 
