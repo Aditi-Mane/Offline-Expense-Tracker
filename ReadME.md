@@ -6,7 +6,7 @@ An **offline-first expense tracking web application** that helps you manage your
 [Check out the live application here](https://offline-expense-trackerr.netlify.app/)
 
 ### 🎥 Demo Video
-https://github.com/user-attachments/assets/41026587-a7bb-48d3-aa07-966503763a4b
+https://github.com/user-attachments/assets/1023fb1e-b08a-4fbf-a55e-ef31f3d9816f
 
 ## 🛠 Tech Stack
 - HTML
