@@ -6,7 +6,7 @@ An **offline-first expense tracking web application** that helps you manage your
 [Check out the live application here](https://offline-expense-trackerr.netlify.app/)
 
 ### 🎥 Demo Video
-https://github.com/user-attachments/assets/391d8d82-538b-453a-9aee-dde7c244e4f3
+https://github.com/user-attachments/assets/784fb5c3-76c0-4404-bb7d-e3d72a4ae183
 
 ## 🛠 Tech Stack
 - HTML
@@ -45,6 +45,7 @@ https://github.com/user-attachments/assets/391d8d82-538b-453a-9aee-dde7c244e4f3
 
 ### 4. Friends Ledger System 🤝
 - Track money between you and your friends.
+- Unpaid/Paid checkbox for tracking
 - Add transactions showing:
   - Friend name
   - Amount
@@ -57,9 +58,9 @@ https://github.com/user-attachments/assets/391d8d82-538b-453a-9aee-dde7c244e4f3
 
 ### 5. Financial Charts 📊
 Three dynamic and interactive charts:
-1. **Income vs Expense Chart**
+1. **Monthly Transaction Trend Chart**
 2. **Category-wise Expense Distribution Chart**
-3. **Monthly Transaction Trend Chart**
+3. **Expenses by category chart**
 
 All charts update automatically whenever transactions are added, edited, or deleted.
 
