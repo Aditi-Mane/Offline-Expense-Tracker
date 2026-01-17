@@ -99,10 +99,11 @@ friendBtn.addEventListener("click", ()=>{
       day: "numeric",
       month: "short",
       year: "numeric"
-    })
+    }),
+    paid: false
   }
 
-  friendTransactions.push(friendTransaction);
+  friendTransactions.unshift(friendTransaction);
 
   renderFriendTransactions();
   updateFriendSummary();
